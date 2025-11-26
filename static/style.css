@@ -1,0 +1,86 @@
+/* static/style.css - Refined for Alignment and Attractive Background */
+
+/* --- 1. System Font and General Body Style --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #e5e5ea; 
+}
+
+.container {
+    max-width: 1200px; /* Increased max-width for enterprise feel */
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+/* --- 2. Card/Container Styling (Frosted Glass Effect) --- */
+.card, .list-group-item {
+    border: 1px solid rgba(0, 0, 0, 0.08); 
+    border-radius: 12px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+    transition: all 0.2s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.card-header, .navbar {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* --- 3. Form Alignment Fixes --- */
+.form-control, .form-select, .input-group-text {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+}
+
+.btn-primary {
+    background-color: #007aff; 
+    border-color: #007aff;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.form-control-color {
+    height: 40px; /* Ensure color picker height aligns */
+}
+
+
+/* --- 4. List Items and Interactions --- */
+
+.list-group-item {
+    padding: 15px 20px;
+}
+
+.list-group-item:hover {
+    background-color: #f7f7f7; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03); 
+    cursor: default;
+}
+
+.list-group-item a {
+    color: #007aff; 
+    font-weight: 600; 
+}
+
+/* Style for the short URL display */
+.list-group-item small a {
+    color: #34c759; /* Green for success/short URL */
+    font-weight: 500;
+}
+
+
+/* --- 5. Custom Tag Styling (Color Code via JS) --- */
+.tag-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3em 0.7em;
+    border-radius: 4px;
+    margin-right: 5px;
+    display: inline-block;
+    color: #fff !important; /* Ensure text is white for contrast */
+}
+
+/* Ensure font color is white on custom colored backgrounds */
+.tag-badge[style*="background-color"] {
+    color: #fff !important;
+}

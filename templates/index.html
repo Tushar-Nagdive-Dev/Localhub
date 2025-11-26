@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalHub - Link Manager</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+</head>
+<body class="bg-light">
+
+    <div class="container py-5">
+        <header class="mb-4">
+            <h1 class="display-4 text-primary fw-bold">LocalHub 🔗</h1>
+            <p class="lead text-muted">Enterprise-Level Link Manager & Shortener.</p>
+        </header>
+        
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
+                <h5 class="mb-0">Add New Link</h5>
+            </div>
+            <div class="card-body">
+                <form id="link-form" class="row g-3 align-items-center">
+                    
+                    <div class="col-md-3">
+                        <input type="text" id="link-name" class="form-control" placeholder="Link Name" required>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <input type="url" id="link-url" class="form-control" placeholder="URL (e.g., http://host:3000)" required>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-text">/</span>
+                            <input type="text" id="link-alias" class="form-control" placeholder="Custom Alias (optional)">
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <input type="text" id="link-tags" class="form-control" placeholder="Tags (e.g., api, dev)" value="General">
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <select id="link-status" class="form-select">
+                            <option value="WIP">WIP (Work in Progress)</option>
+                            <option value="PRODUCTION">PRODUCTION</option>
+                            <option value="DEPRECATED">DEPRECATED</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="date" id="link-expiry" class="form-control" title="Optional Expiration Date">
+                    </div>
+
+                    <div class="col-md-3 d-flex align-items-center justify-content-center">
+                        <input type="color" id="link-color" class="form-control form-control-color p-1" value="#007aff" title="Tag Color">
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary w-100">Add Link</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="mb-4 d-flex justify-content-between align-items-center">
+            <div class="w-50 me-3">
+                <input type="text" id="search-input" class="form-control" placeholder="🔍 Search links by Name, URL, or Tag...">
+            </div>
+            <div class="w-25 me-3">
+                 <select id="category-filter" class="form-select">
+                    <option value="">Filter by Tag</option>
+                 </select>
+            </div>
+            <div class="btn-group">
+                <a href="/api/export" class="btn btn-outline-secondary" title="Download all links as JSON">
+                    Export
+                </a>
+                <input type="file" id="import-file-input" accept=".json" style="display: none;">
+                <button class="btn btn-outline-secondary" id="import-button" title="Upload links.json backup">
+                    Import
+                </button>
+            </div>
+            <div>
+                <button id="reset-button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#resetModal">Bulk Reset</button>
+            </div>
+        </section>
+        
+        <section id="links-container" class="list-group">
+            </section>
+        
+    </div> 
+    
+    <div class="modal fade" id="resetModal" tabindex="-1" aria-labelledby="resetModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resetModalLabel">Confirm Reset</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete **ALL** your saved links? This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirm-reset-button">Yes, Delete All</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

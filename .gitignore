@@ -1,0 +1,6 @@
+venv/
+build/
+dist/
+
+Localhub.txt
+.DS_Store

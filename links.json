@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Gemini",
+        "url": "https://gemini.google.com/app",
+        "tags": [
+            "AI"
+        ],
+        "color": "#187fec",
+        "status": "WIP",
+        "author": "DevUser",
+        "clicks": 2,
+        "slug": "Gemi",
+        "custom": true,
+        "expires_at": "2025-11-30",
+        "analytics": {
+            "unique_clicks": 0,
+            "devices": {},
+            "browsers": {},
+            "os": {}
+        }
+    }
+]
